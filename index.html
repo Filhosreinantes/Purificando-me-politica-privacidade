@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentos Legais — Purificando-me | Ministério Filhos Reinantes</title>
+  <meta name="description" content="Política de Privacidade, Termos de Uso e Diretrizes do aplicativo Purificando-me em total conformidade com a LGPD e Google Play Store.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0c0e14;
+      --bg-card: #151822;
+      --bg-card-hover: #1b1f2c;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(234, 179, 8, 0.35);
+      --gold-primary: #eab308;
+      --gold-gradient: linear-gradient(135deg, #fcd34d 0%, #d97706 100%);
+      --gold-glow: rgba(234, 179, 8, 0.15);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-display: 'Cinzel', Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Background glow effect */
+    .ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(217, 119, 6, 0.08) 0%, rgba(12, 14, 20, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(12, 14, 20, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--gold-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 15px var(--gold-glow);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .brand-text h1 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Tab Switcher */
+    .tab-switcher {
+      display: flex;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tab-btn.active {
+      background: var(--gold-gradient);
+      color: #0c0e14;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(217, 119, 6, 0.35);
+    }
+
+    .tab-btn:hover:not(.active) {
+      color: var(--text-main);
+    }
+
+    /* Container */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+      flex: 1;
+    }
+
+    /* Hero Badge section */
+    .hero-meta {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(234, 179, 8, 0.08);
+      border: 1px solid var(--border-gold);
+      color: #fcd34d;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+    }
+
+    .doc-title {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .doc-updated {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Content Cards */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.25rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Highlight Banner */
+    .card-highlight {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.12) 0%, rgba(21, 24, 34, 0.8) 100%);
+      border: 1px solid var(--border-gold);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-highlight::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: var(--gold-gradient);
+    }
+
+    .card-alert {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(21, 24, 34, 0.8) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-alert::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: #ef4444;
+    }
+
+    h2 {
+      font-size: 1.28rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h2 .num {
+      color: var(--gold-primary);
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fcd34d;
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #d1d5db;
+      font-size: 0.95rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    em {
+      color: #e5e7eb;
+      font-style: italic;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.75rem;
+      font-size: 0.94rem;
+      color: #d1d5db;
+    }
+
+    li::before {
+      content: '✦';
+      position: absolute;
+      left: 0.25rem;
+      color: var(--gold-primary);
+      font-size: 0.85rem;
+    }
+
+    .sub-box {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    a {
+      color: #fcd34d;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: #090a0f;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-text {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* Responsividade */
+    @media (max-width: 640px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .brand {
+        justify-content: center;
+      }
+      .tab-switcher {
+        justify-content: center;
+      }
+      .card {
+        padding: 1.5rem;
+      }
+      .doc-title {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand" onclick="location.reload()">
+        <div class="brand-icon">👑</div>
+        <div class="brand-text">
+          <h1>PURIFICANDO-ME</h1>
+          <p>Ministério Filhos Reinantes</p>
+        </div>
+      </a>
+
+      <!-- Abas para alternar sem recarregar a página -->
+      <div class="tab-switcher" role="tablist">
+        <button class="tab-btn active" id="tab-btn-privacidade" onclick="switchTab('privacidade')">
+          <span>🛡️</span> Política de Privacidade
+        </button>
+        <button class="tab-btn" id="tab-btn-termos" onclick="switchTab('termos')">
+          <span>📜</span> Termos de Uso
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== ABA 1: POLÍTICA DE PRIVACIDADE ==================== -->
+    <div id="content-privacidade" class="tab-content active">
+      <div class="hero-meta">
+        <div class="badge-row">
+          <span class="badge">LGPD • Lei nº 13.709/2018</span>
+          <span class="badge">Google Play Compliant</span>
+          <span class="badge">Livre para todas as idades</span>
+          <span class="badge">Zero Rastreamento</span>
+        </div>
+        <h1 class="doc-title">Política de Privacidade</h1>
+        <p class="doc-updated">Última atualização: Março de 2026 • Documento Oficial</p>
+      </div>
+
+      <!-- Destaque Central -->
+      <div class="card card-highlight">
+        <h2>Compromisso Central com a sua Intimidade Espiritual</h2>
+        <p>
+          No <strong>Purificando-me</strong>, respeitamos a santidade do seu momento com Deus.
+          <strong>Não armazenamos em servidores remotos as suas orações, anotações de confissão ou gravações de áudio.</strong>
+          O que você fala ou digita no altar permanece sob seu controle direto e exclusivo.
+        </p>
+      </div>
+
+      <!-- Seção 1 -->
+      <div class="card">
+        <h2><span class="num">01.</span> Enquadramento Legal e Dados Sensíveis (LGPD)</h2>
+        <p>
+          Em conformidade com a <strong>Lei Geral de Proteção de Dados Pessoais (LGPD — Lei nº 13.709/2018)</strong>,
+          reconhecemos a convicção religiosa e relatos de arrependimento, confissão e orações como
+          <strong>dados pessoais sensíveis</strong> (Art. 5º, inciso II da LGPD).
+        </p>
+        <p>
+          Por essa razão, nossa arquitetura adota o princípio de <em>Privacy by Design</em> e minimização máxima de dados (Art. 6º, III):
+        </p>
+        <ul>
+          <li><strong>Nenhum banco de dados na nuvem:</strong> o aplicativo não armazena os textos digitados em etapas de oração ou confissão em servidores remotos.</li>
+          <li><strong>Memória estritamente local:</strong> o processamento de notas e reflexões ocorre apenas na memória do seu próprio aparelho ou navegador.</li>
+          <li><strong>Sem exigência de conta ou cadastro:</strong> o aplicativo funciona livremente sem exigir login, senhas, CPF ou e-mail.</li>
+        </ul>
+      </div>
+
+      <!-- Seção 2 -->
+      <div class="card">
+        <h2><span class="num">02.</span> Permissão de Microfone e Reconhecimento de Voz</h2>
+        <p>
+          O aplicativo oferece um recurso opcional de transcrição por voz na etapa de reconhecimento e oração:
+        </p>
+        <ul>
+          <li>O microfone só é ativado <strong>sob sua ação deliberada</strong>, ao clicar no botão de microfone/falar.</li>
+          <li>Utilizamos a biblioteca nativa do sistema operacional (<em>Speech Recognition</em>). <strong>Nenhum arquivo de áudio é transmitido, gravado ou salvo</strong> pela equipe do Purificando-me.</li>
+          <li>Você pode revogar essa permissão a qualquer momento nas configurações do seu sistema operacional Android.</li>
+        </ul>
+      </div>
+
+      <!-- Seção 3 -->
+      <div class="card">
+        <h2><span class="num">03.</span> Ausência de Rastreamento e Telemetria</h2>
+        <p>
+          O <strong>Purificando-me</strong> opera sob o princípio de transparência integral:
+        </p>
+        <ul>
+          <li><strong>Sem rastreamento de downloads ou uso:</strong> o aplicativo não utiliza ferramentas de telemetria, contadores invasivos ou identificadores comportamentais.</li>
+          <li><strong>Sem anúncios publicitários (zero ads):</strong> não monetizamos sua atenção e não compartilhamos perfis de público com agências de publicidade.</li>
+          <li><strong>Sem cookies espiões ou pixels:</strong> nenhum dado de navegação é enviado a empresas de tecnologia terceiras.</li>
+        </ul>
+      </div>
+
+      <!-- Seção 4 -->
+      <div class="card">
+        <h2><span class="num">04.</span> Classificação Livre e Autonomia de Uso</h2>
+        <p>
+          O <strong>Purificando-me</strong> possui conteúdo exclusivamente espiritual, devocional e reflexivo, sendo considerado de
+          <strong>classificação indicativa Livre para todas as idades</strong>. O aplicativo funciona localmente no dispositivo,
+          sem cadastro, sem login e sem qualquer coleta de dados de usuários de qualquer faixa etária.
+        </p>
+        <p>
+          O acesso e a utilização do aplicativo ocorrem de forma estritamente voluntária e sob a
+          <strong>exclusiva responsabilidade do próprio usuário</strong> (ou de seus responsáveis legais, quando aplicável).
+          Os criadores, desenvolvedores e o Ministério Filhos Reinantes isentam-se expressamente de qualquer responsabilidade
+          direta ou indireta decorrente da supervisão de uso, interpretação dos textos ou decisões tomadas a partir dos conteúdos disponibilizados.
+        </p>
+      </div>
+
+      <!-- Seção 5 -->
+      <div class="card">
+        <h2><span class="num">05.</span> Encarregado de Proteção de Dados (DPO) e Contato</h2>
+        <p>
+          Em caso de dúvidas, solicitações de esclarecimento sobre privacidade ou exercício de direitos fundamentais (Art. 18 da LGPD),
+          nosso canal oficial de atendimento é:
+        </p>
+        <div class="sub-box">
+          <p><strong>Ministério Filhos Reinantes</strong></p>
+          <p>E-mail institucional: <a href="mailto:filhosreinantes@gmail.com">filhosreinantes@gmail.com</a></p>
+          <p>Canal de Privacidade: <a href="mailto:contato@filhosreinantes.com.br">contato@filhosreinantes.com.br</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== ABA 2: TERMOS DE USO ==================== -->
+    <div id="content-termos" class="tab-content">
+      <div class="hero-meta">
+        <div class="badge-row">
+          <span class="badge">Condições Oficiais</span>
+          <span class="badge">100% Gratuito</span>
+          <span class="badge">Lei nº 9.610/1998</span>
+        </div>
+        <h1 class="doc-title">Termos de Uso do Serviço</h1>
+        <p class="doc-updated">Última atualização: Março de 2026 • Diretrizes Institucionais</p>
+      </div>
+
+      <!-- Aviso de Saúde Mental -->
+      <div class="card card-alert">
+        <h2>Aviso Importante sobre Saúde Mental e Apoio Emocional</h2>
+        <p>
+          O <strong>Purificando-me</strong> é um aplicativo com finalidade exclusivamente
+          <strong>devocional, pastoral e de fé cristã</strong>. As orações, passos e reflexões foram elaborados para o fortalecimento espiritual e edificação pessoal.
+        </p>
+        <p>
+          <strong>O aplicativo NÃO substitui, sob hipótese alguma, aconselhamento médico, psiquiátrico, psicoterapêutico ou qualquer tratamento de saúde mental.</strong>
+        </p>
+        <div class="sub-box">
+          <p><strong>Precisa de apoio ou escuta imediata?</strong></p>
+          <p>Se você ou alguém próximo estiver passando por momentos de severa angústia, depressão ou pensamentos autodestrutivos, busque atendimento médico especializado ou ligue para o <strong>CVV (Centro de Valorização da Vida)</strong> pelo telefone <strong>188</strong> (ligação gratuita nacional, atendimento humanizado 24h por dia).</p>
+        </div>
+      </div>
+
+      <!-- Termo 1 & 2 -->
+      <div class="card">
+        <h2><span class="num">01.</span> Aceitação dos Termos e Gratuidade Integral</h2>
+        <p>
+          Ao utilizar o aplicativo <strong>Purificando-me</strong> (em formato móvel ou web), você concorda expressamente com estes Termos de Uso e com a nossa Política de Privacidade.
+        </p>
+        <p>
+          O aplicativo é <strong>100% gratuito</strong>. Não há cobranças ocultas, assinaturas, venda de livros dentro do app ou compras integradas. Todas as ferramentas são disponibilizadas livremente pelo Ministério Filhos Reinantes para a edificação de todos.
+        </p>
+      </div>
+
+      <!-- Termo 3 -->
+      <div class="card">
+        <h2><span class="num">02.</span> Propriedade Intelectual e Atribuição Bíblica</h2>
+        <p>
+          Todos os textos devocionais originais, metodologia de passos, curadoria e design de interface pertencem ao
+          <strong>Ministério Filhos Reinantes</strong> e são protegidos pelas leis de direitos autorais (Lei nº 9.610/1998).
+        </p>
+        <div class="sub-box">
+          <p><strong>Traduções Bíblicas Utilizadas:</strong></p>
+          <p>As referências das Sagradas Escrituras foram extraídas de traduções consagradas em língua portuguesa para fins estritamente devocionais e de reflexão:</p>
+          <ul>
+            <li><strong>ARA / ARC:</strong> Sociedade Bíblica do Brasil (SBB). Todos os direitos reservados.</li>
+            <li><strong>NVI (Nova Versão Internacional):</strong> Copyright © 1993, 2000, 2011 Biblica, Inc. Usada com permissão.</li>
+            <li><strong>ACF:</strong> Sociedade Bíblica Trinitariana do Brasil.</li>
+            <li>Trechos de domínio público de edições históricas da tradução de João Ferreira de Almeida.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Termo 4 -->
+      <div class="card">
+        <h2><span class="num">03.</span> Limitação Total de Responsabilidade e Uso Voluntário</h2>
+        <p>
+          O <strong>Purificando-me</strong> é disponibilizado gratuitamente "no estado em que se encontra" (<em>as is</em>), sem garantias de qualquer natureza, expressas ou implícitas. A utilização de todas as ferramentas, orações, meditações e conteúdos bíblicos é de iniciativa estritamente pessoal, voluntária e sob o livre arbítrio de cada indivíduo.
+        </p>
+        <p>
+          Em nenhuma circunstância o Ministério Filhos Reinantes, seus idealizadores, desenvolvedores ou colaboradores serão responsabilizados civil, penal, moral ou financeiramente por quaisquer danos diretos, indiretos, incidentais ou consequenciais decorrentes:
+        </p>
+        <ul>
+          <li>Do uso ou incapacidade de uso do aplicativo;</li>
+          <li>Da interpretação, compreensão subjetiva ou aplicação prática dos textos e conselhos devocionais;</li>
+          <li>De decisões pessoais, emocionais, familiares ou espirituais tomadas pelo usuário;</li>
+          <li>Da supervisão, guarda ou controle do acesso de menores de idade, cuja incumbência cabe com exclusividade a seus respectivos pais ou responsáveis legais.</li>
+        </ul>
+      </div>
+
+      <!-- Termo 5 -->
+      <div class="card">
+        <h2><span class="num">04.</span> Alterações e Contato</h2>
+        <p>
+          Estes termos podem sofrer revisões periódicas para adequação contínua às diretrizes da Google Play Store e legislações vigentes. Em caso de dúvidas sobre este documento, contate:
+        </p>
+        <div class="sub-box">
+          <p>E-mail: <a href="mailto:filhosreinantes@gmail.com">filhosreinantes@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-brand">PURIFICANDO-ME</div>
+    <p class="footer-text">© 2026 Ministério Filhos Reinantes. Todos os direitos reservados.</p>
+    <div class="footer-links">
+      <a href="javascript:switchTab('privacidade')">Política de Privacidade</a>
+      <span>•</span>
+      <a href="javascript:switchTab('termos')">Termos de Uso</a>
+      <span>•</span>
+      <a href="mailto:filhosreinantes@gmail.com">Suporte</a>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(tab) {
+      // Toggle buttons
+      document.getElementById('tab-btn-privacidade').classList.toggle('active', tab === 'privacidade');
+      document.getElementById('tab-btn-termos').classList.toggle('active', tab === 'termos');
+
+      // Toggle content
+      document.getElementById('content-privacidade').classList.toggle('active', tab === 'privacidade');
+      document.getElementById('content-termos').classList.toggle('active', tab === 'termos');
+
+      // Update URL hash without jumping
+      history.replaceState(null, null, '#' + tab);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Handle hash on load (e.g. #termos or #privacidade)
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'termos' || hash === 'privacidade') {
+        switchTab(hash);
+      }
+    });
+  </script>
+</body>
+</html>
